@@ -22,9 +22,9 @@ function RecipeGenerator() {
     };
 
     return (
-        <div>
+        <div className="container">
             <h2>Recipe Generator</h2>
-            <input type="text" value={ingredients} onChange={(e) => setIngredients(e.target.value)} placeholder="Enter Ingredients(Comma-Seperated)" />
+            <input type="text" value={ingredients} onChange={(e) => setIngredients(e.target.value)} placeholder="Enter Ingredients (Comma-Separated)" />
             <input type="text" value={cuisine} onChange={(e) => setCuisine(e.target.value)} placeholder="Enter Cuisine Type" />
             <input type="text" value={dietaryRestictions} onChange={(e) => setDietaryRestictions(e.target.value)} placeholder="Enter Dietary Restrictions" />
 
