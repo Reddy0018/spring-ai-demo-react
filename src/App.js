@@ -6,7 +6,7 @@ import ChatComponent from './Componenets/chat';
 
 function App() {
 
-  const [activeTab , setActiveTab] = useState('image-generator');
+  const [activeTab , setActiveTab] = useState('chat');
 
   const handleTabChange = (tab) => {
     // alert(tab);
