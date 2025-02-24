@@ -1,19 +1,23 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import './RecipeGenerator.css'; // Import the CSS file for styling
 
 function RecipeGenerator() {
-    const[ingredients, setIngredients] = useState('');
-    const[cuisine, setCuisine] = useState('any');
-    const[dietaryRestictions, setDietaryRestictions] = useState('No dietary Restrictions');
-    const[recipe, setRecipe] = useState('');
+    const [ingredients, setIngredients] = useState('');
+    const [cuisine, setCuisine] = useState('any');
+    const [dietaryRestictions, setDietaryRestictions] = useState('No dietary Restrictions');
+    const [recipe, setRecipe] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const  createRecipe = async () => {
-        try{
-            const response = await fetch(`http://localhost:8080/AI/getRecipe?ingredients=${ingredients}&cuisine=${cuisine}&dietaryRestrictions=${dietaryRestictions}`) //Need to add the API URL
+    const createRecipe = async () => {
+        setLoading(true);
+        try {
+            const response = await fetch(`http://localhost:8080/AI/getRecipe?ingredients=${ingredients}&cuisine=${cuisine}&dietaryRestrictions=${dietaryRestictions}`);
             const data = await response.text();
-            // console.log(data);
             setRecipe(data);
-        }catch(error){
-            console.error("Error Generating the Recipe: " +error);
+        } catch (error) {
+            console.error("Error Generating the Recipe: " + error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -26,10 +30,10 @@ function RecipeGenerator() {
 
             <button onClick={createRecipe}>Generate Recipe</button>
             <div className="output">
-                <pre className="recipe-text">{recipe}</pre>
+                {loading ? <div className="spinner"></div> : <pre className="recipe-text">{recipe}</pre>}
             </div>
         </div>
     );
-} 
+}
 
 export default RecipeGenerator;
