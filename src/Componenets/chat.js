@@ -10,7 +10,7 @@ function ChatComponent() {
     const askAI = async () => {
         setLoading(true);
         try{
-            const response = await fetch(`http://localhost:8080/GitHubAI/getResponse?prompt=${prompt}`) //Added Free Endpoint 
+            const response = await fetch(`https://spring-ai-8th5.onrender.com/GitHubAI/getResponse?prompt=${prompt}`) //Added Free Endpoint 
             const data = await response.text();
             setChatresponse(data);
         }catch(error){

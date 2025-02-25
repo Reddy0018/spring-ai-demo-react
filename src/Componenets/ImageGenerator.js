@@ -7,7 +7,7 @@ function ImageGenerator() {
     const generateImage = async () => {
         try{
 
-            const response = await fetch(`http://localhost:8080/AI/generateImage?prompt=${prompt}`) //Need to add the API URL
+            const response = await fetch(`https://spring-ai-8th5.onrender.com/AI/generateImage?prompt=${prompt}`) //Need to add the API URL
             const data = await response.json();
             setImageUrls(data);
 

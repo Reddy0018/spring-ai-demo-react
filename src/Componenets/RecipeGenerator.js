@@ -11,7 +11,7 @@ function RecipeGenerator() {
     const createRecipe = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:8080/AI/getRecipe?ingredients=${ingredients}&cuisine=${cuisine}&dietaryRestrictions=${dietaryRestictions}`);
+            const response = await fetch(`https://spring-ai-8th5.onrender.com/AI/getRecipe?ingredients=${ingredients}&cuisine=${cuisine}&dietaryRestrictions=${dietaryRestictions}`);
             const data = await response.text();
             setRecipe(data);
         } catch (error) {
