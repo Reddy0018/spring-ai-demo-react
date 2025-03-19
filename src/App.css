@@ -77,3 +77,33 @@ img {
   border: 1px solid #ccc; /* Optional: adds a border around the text container */
   margin-bottom: 20px; /* Spacing below the text container */
 }
+
+.dropdown {
+    width: 220px;
+    padding: 10px;
+    margin: 20px auto;
+    font-size: 16px;
+    border: 2px solid #3498db; /* Blue border */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light background */
+    color: #333; /* Text color */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover and focus */
+    outline: none;
+}
+
+.dropdown:hover {
+    border-color: #2980b9; /* Darker blue on hover */
+    background-color: #eaf6ff; /* Light blue background on hover */
+}
+
+.dropdown:focus {
+    border-color: #1abc9c; /* Green border on focus */
+    background-color: #e8fff4; /* Light green background on focus */
+}
+
+.dropdown option {
+    background-color: #fff; /* White background for options */
+    color: #333; /* Text color for options */
+    padding: 10px;
+}

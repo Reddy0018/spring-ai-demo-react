@@ -1,31 +1,30 @@
 import './App.css';
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import ImageGenerator from './Componenets/ImageGenerator';
 import RecipeGenerator from './Componenets/RecipeGenerator';
 import ChatComponent from './Componenets/chat';
 
 function App() {
 
-  const [activeTab , setActiveTab] = useState('chat');
+  const [activeTab, setActiveTab] = useState('chat');
 
-  const handleTabChange = (tab) => {
-    // alert(tab);
-    setActiveTab(tab);
-  }
-
+  const handleTabChange = (event) => {
+    setActiveTab(event.target.value);
+  };
 
   return (
     <div className="App">
-      <button className={activeTab==='image-generator' ? 'active':''} onClick={()=>handleTabChange('image-generator')}>Image Generator</button>
-      <button className={activeTab==='chat' ? 'active':''} onClick={()=>handleTabChange('chat')}>Ask AI</button>
-      <button className={activeTab==='recipe-generator' ? 'active':''} onClick={()=>handleTabChange('recipe-generator')}>Recipe Generator</button>
+      <select value={activeTab} onChange={handleTabChange} className="dropdown">
+        <option value="image-generator">Image Generator</option>
+        <option value="chat">Ask AI</option>
+        <option value="recipe-generator">Recipe Generator</option>
+      </select>
 
       <div>
-        {activeTab === 'image-generator' && <ImageGenerator/>}
-        {activeTab === 'chat' && <ChatComponent/>}
-        {activeTab === 'recipe-generator' && <RecipeGenerator/>}
+        {activeTab === 'image-generator' && <ImageGenerator />}
+        {activeTab === 'chat' && <ChatComponent />}
+        {activeTab === 'recipe-generator' && <RecipeGenerator />}
       </div>
-
     </div>
   );
 }
